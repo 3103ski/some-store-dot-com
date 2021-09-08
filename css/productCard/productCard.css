@@ -1,3 +1,7 @@
+.product-list-container {
+  padding: 10px 30px;
+}
+
 .store-product-card {
   box-shadow: 1px 1px 8px rgba(237, 229, 229, 0.6);
   display: flex;
@@ -14,10 +18,11 @@
 .store-product-card .product-wrapper-img {
   border-right: 1px solid rgba(237, 229, 229, 0.6);
   box-sizing: border-box;
-  padding: 20px;
+  padding: 15px;
   width: 130px;
 }
 .store-product-card .product-wrapper-img .product-img {
+  border-radius: 5px;
   width: 100%;
 }
 .store-product-card .product-wrapper-text {

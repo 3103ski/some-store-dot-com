@@ -1,5 +1,9 @@
 @import '../sass/';
 
+.product-list-container {
+    padding: 10px 30px;
+}
+
 .store-product-card {
     * {
         margin: 0;
@@ -17,10 +21,11 @@
     .product-wrapper-img {
         border-right: 1px solid $light-grey;
         box-sizing: border-box;
-        padding: 20px;
+        padding: 15px;
         width: 130px;
 
         .product-img {
+            border-radius: 5px;
             width: 100%;
         }
     }

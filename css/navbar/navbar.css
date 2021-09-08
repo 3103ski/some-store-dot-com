@@ -1,0 +1,16 @@
+.nav-container-outer {
+  display: flex;
+  padding: 10px;
+  margin: 5px;
+}
+
+.nav-link-outer {
+  padding: 3px 8px;
+}
+.nav-link-outer a {
+  width: 100%;
+  text-decoration: none;
+  color: #222;
+}
+
+/*# sourceMappingURL=navbar.css.map */

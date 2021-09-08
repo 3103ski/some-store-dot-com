@@ -1,5 +1,34 @@
 import { createStyleLink, makeEl, imgEl} from '../../util/helperFunctions.js';
+import {products} from '../../data/products.js';
 
+export class ProductContainer extends HTMLElement {
+    constructor() {
+        super();
+        const shadow = this.attachShadow({mode: 'open'});
+        const style = createStyleLink('productCard');
+
+        const wrapper = makeEl('div', 'product-list-container');
+        const productSlot = makeEl('slot');
+        productSlot.setAttribute('name', 'product');
+
+        wrapper.appendChild(productSlot);
+        
+        shadow.appendChild(wrapper)
+        shadow.appendChild(style);
+    }
+
+    connectedCallback() {
+        products.map(p => {
+            let pNode = document.createElement('product-card');
+            pNode.setAttribute('data-title', p.title);
+            pNode.setAttribute('slot', 'product');
+            pNode.setAttribute('data-description', p.description);
+            pNode.setAttribute('data-price', p.price);
+            pNode.setAttribute('data-img', p.img)
+            document.querySelector('.product-list-container').appendChild(pNode);
+        })
+    }
+}
 export class ProductCard extends HTMLElement {
     constructor(){
         super();
@@ -47,4 +76,6 @@ export class ProductCard extends HTMLElement {
     }
 }
 
+
+customElements.define('product-list-container', ProductContainer)
 customElements.define('product-card', ProductCard)

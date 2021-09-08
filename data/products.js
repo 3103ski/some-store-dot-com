@@ -32,3 +32,36 @@ export const jeans = [
         img: jeansPath('jeans-4.jpg')
     },
 ]
+
+const shirts = [
+    {
+        title: 'Blue Shirt',
+        tags: ['fitted', 'blue', 'comfortable', 'casual'],
+        price: 9.99,
+        description: 'Classic blue tees',
+        img: shirtsPath('shirt-1.jpeg')
+    },
+    {
+        title: 'Aqua Tee',
+        tags: ['slim', 'aqua', 'comfortable', 'casual'],
+        price: 13.99,
+        description: 'Fleible comfy tee shirt',
+        img: shirtsPath('shirt-2.jpg')
+    },
+    {
+        title: 'Tan',
+        tags: ['soft', 'tan', 'comfortable'],
+        price: 19.99,
+        description: 'The most comfortable shirt ever',
+        img: shirtsPath('shirt-3.png')
+    },
+    {
+        title: 'Sports Shirt',
+        tags: ['slim', 'pattern', 'athletic'],
+        price: 29.99,
+        description: 'Get your workout on in something that breathes.',
+        img: shirtsPath('shirt-4.jpg')
+    },
+]
+
+export const products = [...jeans, ...shirts];
