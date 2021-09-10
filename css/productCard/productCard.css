@@ -15,6 +15,9 @@
   margin: 0;
   padding: 0;
 }
+.store-product-card:hover {
+  cursor: pointer;
+}
 .store-product-card .product-wrapper-img {
   border-right: 1px solid rgba(237, 229, 229, 0.6);
   box-sizing: border-box;

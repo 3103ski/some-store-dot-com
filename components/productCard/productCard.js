@@ -1,18 +1,19 @@
 import { createStyleLink, makeEl, imgEl} from '../../util/helperFunctions.js';
-import {products} from '../../data/products.js';
+import { products } from '../../data/products.js';
 
 export class ProductContainer extends HTMLElement {
     constructor() {
         super();
+
         const shadow = this.attachShadow({mode: 'open'});
         const style = createStyleLink('productCard');
-
         const wrapper = makeEl('div', 'product-list-container');
         const productSlot = makeEl('slot');
+
         productSlot.setAttribute('name', 'product');
 
         wrapper.appendChild(productSlot);
-        
+
         shadow.appendChild(wrapper)
         shadow.appendChild(style);
     }
@@ -20,11 +21,13 @@ export class ProductContainer extends HTMLElement {
     connectedCallback() {
         products.map(p => {
             let pNode = document.createElement('product-card');
-            pNode.setAttribute('data-title', p.title);
+
             pNode.setAttribute('slot', 'product');
+            pNode.setAttribute('data-img', p.img)
+            pNode.setAttribute('data-title', p.title);
             pNode.setAttribute('data-description', p.description);
             pNode.setAttribute('data-price', p.price);
-            pNode.setAttribute('data-img', p.img)
+
             document.querySelector('.product-list-container').appendChild(pNode);
         })
     }
@@ -52,11 +55,11 @@ export class ProductCard extends HTMLElement {
         const description = makeEl('p', 'store-product-description');
 
         
+        
         // set elements' data content
         price.textContent = `$${this.getAttribute('data-price')}`;
         title.textContent = this.getAttribute('data-title');
         description.textContent = this.getAttribute('data-description');
-        
 
         // assemble elements
         shadow.appendChild(mainWrapper);
@@ -74,8 +77,13 @@ export class ProductCard extends HTMLElement {
 
         bottomText.appendChild(description);
     }
+
+    connectedCallback() {
+        
+    }
 }
 
 
 customElements.define('product-list-container', ProductContainer)
 customElements.define('product-card', ProductCard)
+

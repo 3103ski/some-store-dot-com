@@ -1,19 +1,20 @@
-export const createStyleLink = (filename, nested = false) => {
-    let path;
-    
-    if (!nested) {
-        path = `css/${filename}/${filename}.css`;
-    } else {
-        path = `../css/${filename}/${filename}.css`;
+export const createStyleLink = (filename, nestCount = 0) => {
+    let path = `css/${filename}/${filename}.css`;
+    for (let i = 0; i < nestCount; i++) {
+        path = '../' + path;
     }
 
     let linkEl = document.createElement('link');
-
     linkEl.setAttribute('rel', 'stylesheet');
     linkEl.setAttribute('href', path);
 
     return linkEl;
 };
+
+export const createPath = (folder, filename, nestLevelCount = 0) => {
+    let path = `${'../' * nestLevelCount}/${folder}/${filename}`;
+    
+}
 
 export const makeEl = (type, className, id) => {
     const el = document.createElement(type);

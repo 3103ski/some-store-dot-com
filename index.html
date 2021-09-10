@@ -7,11 +7,14 @@
     <title>Some Shop Dot Com</title>
 </head>
 <body>
-    <nav-bar rootpage >
-        <nav-link slot="link" name="Shop" to="/"></nav-link>
-        <nav-link slot="link" name="Cart" to="pages/cart.html"></nav-link>
-    </nav-bar>
-    <product-list-container class="product-list-container"></product-list-container>
+    <div id="app">
+        <nav-bar rootpage="true" >
+            <nav-link slot="link" name="Store" to="/"></nav-link>
+            <nav-link slot="link" name="Cart" to="pages/cart.html"></nav-link>
+        </nav-bar>
+        <product-list-container class="product-list-container"></product-list-container>
+        
+    </div>
 </body>
 <script type="module" src="/js/index.js"></script>
 </html>
