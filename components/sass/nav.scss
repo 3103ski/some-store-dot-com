@@ -1,0 +1,17 @@
+nav {
+    background-color: $primary-light;
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 10px;
+        
+
+        li {
+            padding: 5px 6px;
+            a {
+                color: white;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

@@ -13,7 +13,6 @@ export const createStyleLink = (filename, nestCount = 0) => {
 
 export const createPath = (folder, filename, nestLevelCount = 0) => {
     let path = `${'../' * nestLevelCount}/${folder}/${filename}`;
-    
 }
 
 export const makeEl = (type, className, id) => {
@@ -63,14 +62,4 @@ export function loadGoogleFonts() {
     docHead.appendChild(gf1)
     docHead.appendChild(gf2)
     docHead.appendChild(gf3)
-
-    const style = document.createElement('style');
-    style.innerHTML = `
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-    }
-    `
-    docHead.appendChild(style);
 }

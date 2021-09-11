@@ -1,6 +1,6 @@
-import '../components/index.js'
-import {loadGoogleFonts} from  '../util/helperFunctions.js'
-
+import '../components/index.js';
+import './router.js';
+import { loadGoogleFonts } from  '../util/helperFunctions.js';
 
 (function() {
     loadGoogleFonts()

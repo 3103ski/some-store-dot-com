@@ -30,8 +30,6 @@ export class Navcart extends HTMLElement {
         let style = createStyleLink('navbar', rootpage ? null : 1);
         
         let container = makeEl('div', 'nav-cart-container');
-
-
     }
 }
 
@@ -62,7 +60,7 @@ export class Navlink extends HTMLElement {
 
         let a = shadow.querySelector('a')
         a.innerText = this.getAttribute('name');
-        a.href = this.getAttribute('to')
+        a.route = this.getAttribute('to')
     }
 }
 

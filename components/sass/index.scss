@@ -1,2 +1,9 @@
 @import 'variables';
 @import 'mixins';
+@import './nav.scss';
+@import './global.scss';
+
+a {
+    text-decoration: none;
+}
+

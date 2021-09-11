@@ -20,15 +20,17 @@ export class ProductContainer extends HTMLElement {
 
     connectedCallback() {
         products.map(p => {
-            let pNode = document.createElement('product-card');
+            let pEl = document.createElement('product-card');
+            let container = document.querySelector('.product-list-container');
 
-            pNode.setAttribute('slot', 'product');
-            pNode.setAttribute('data-img', p.img)
-            pNode.setAttribute('data-title', p.title);
-            pNode.setAttribute('data-description', p.description);
-            pNode.setAttribute('data-price', p.price);
+            pEl.setAttribute('slot', 'product');
+            pEl.setAttribute('data-img', p.img)
+            pEl.setAttribute('data-title', p.title);
+            pEl.setAttribute('data-description', p.description);
+            pEl.setAttribute('data-price', p.price);
 
-            document.querySelector('.product-list-container').appendChild(pNode);
+
+            container.appendChild(pEl);
         })
     }
 }
@@ -43,8 +45,8 @@ export class ProductCard extends HTMLElement {
 
         // create elements
         const mainWrapper = makeEl('div', 'store-product-card');
-        const imgWrapper = makeEl('div', 'product-wrapper-img');
-        const img = imgEl(this.getAttribute('data-img'), 'blue shirt', 'product-img');
+        const imgWrapper = makeEl('a', 'product-wrapper-img');
+        
 
         const textWrapper = makeEl('div', 'product-wrapper-text');
         const topText = makeEl('div', 'product-text-top');
@@ -53,21 +55,13 @@ export class ProductCard extends HTMLElement {
         const title = makeEl('h1', 'store-product-title');
         const price = makeEl('h4', 'store-product-price');
         const description = makeEl('p', 'store-product-description');
-
         
-        
-        // set elements' data content
-        price.textContent = `$${this.getAttribute('data-price')}`;
-        title.textContent = this.getAttribute('data-title');
-        description.textContent = this.getAttribute('data-description');
 
         // assemble elements
         shadow.appendChild(mainWrapper);
 
         mainWrapper.appendChild(imgWrapper);
         mainWrapper.appendChild(textWrapper);
-
-        imgWrapper.appendChild(img);
         
         textWrapper.appendChild(topText)
         textWrapper.appendChild(bottomText)
@@ -79,11 +73,20 @@ export class ProductCard extends HTMLElement {
     }
 
     connectedCallback() {
+        let img = imgEl(this.getAttribute('data-img'), this.getAttribute('data-title'), 'product-img');
+        let price = this.shadowRoot.querySelector('.store-product-price');
+        let description = this.shadowRoot.querySelector('.store-product-description');
+        let title = this.shadowRoot.querySelector('.store-product-title');
         
+        this.shadowRoot.querySelector('.product-wrapper-img').appendChild(img)
+        price.textContent = `${this.getAttribute('data-price')}`;
+        description.textContent = `${this.getAttribute('data-description')}`;
+        title.textContent = `${this.getAttribute('data-title')}`;
+
     }
 }
 
 
-customElements.define('product-list-container', ProductContainer)
+customElements.define('page-store', ProductContainer)
 customElements.define('product-card', ProductCard)
 
