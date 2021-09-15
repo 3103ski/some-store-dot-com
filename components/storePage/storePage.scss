@@ -1,14 +1,10 @@
 @import '../sass/';
 
-.product-list-container {
+.products-list-container {
     padding: 10px 30px;
 }
 
 .store-product-card {
-    * {
-        margin: 0;
-        padding: 0;
-    }
     @include shadow;
 
     &:hover {

@@ -1,5 +1,10 @@
+//••••••••••••••••••••••••••••••••••••••••••••
+// scoped stylesheets are attached to the custom component's shadow DOM. Each component has 
+// its own .scss file for styling, this function helps connect the used custom-component in index.html 
+// to the proper compiled stylesheet in the '/css/` directory.
+
 export const createStyleLink = (filename, nestCount = 0) => {
-    let path = `css/${filename}/${filename}.css`;
+    let path = `/css/${filename}/${filename}.css`;
     for (let i = 0; i < nestCount; i++) {
         path = '../' + path;
     }
@@ -11,9 +16,9 @@ export const createStyleLink = (filename, nestCount = 0) => {
     return linkEl;
 };
 
-export const createPath = (folder, filename, nestLevelCount = 0) => {
-    let path = `${'../' * nestLevelCount}/${folder}/${filename}`;
-}
+//••••••••••••••••••••••••••••••••••••••••••••
+// Both 'makeEl' and 'imgEl' have similar purpose of creating elements in shorthand, `imgEl` 
+// is just more streamlined for assigning the attributes only an img needs
 
 export const makeEl = (type, className, id) => {
     const el = document.createElement(type);
@@ -36,6 +41,7 @@ export const imgEl = (src, alt, className) => {
     return img;
 }   
 
+// •••••••••••••••••••••••••••••••••••••
 
 export const updateObj = (obj, update) => {
     return {
@@ -43,6 +49,11 @@ export const updateObj = (obj, update) => {
         ...update
     }
 }
+
+// •••••••••••••••••••••••••••••••••••••
+// This may not be necessary since the project switched to SPA with the
+// creation of router.js in the project. But it feels clean on the index.html 
+// page so I have decided to leave it here for now. It gets called onload from index.js
 
 export function loadGoogleFonts() {
     const docHead = document.querySelector('head');

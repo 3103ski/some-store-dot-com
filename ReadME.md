@@ -1,7 +1,7 @@
 # Store Dot Com
-This project is an exercise in using Vanilla JS. 
+This project is built with Vanilla JS. The main goal is to not use a framework or library to learn more about what is happening behind the scenes when using them. 
 
-## Objectives
+## Other Objectives
 
 - Build a UI using Web Components and VanillaJS to create resuable templates and organized code
 - Create dynamic functionality without using React

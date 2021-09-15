@@ -123,6 +123,17 @@ export default class Router extends HTMLElement {
     connectedCallback() {
         this.updateLinks();
         this.navigate(window.location.pathname);
+
+        window.addEventListener('popstate', this._handlePopstate)
+    }
+
+    _handlePopstate = () => {
+        console.log('pop', window.location.pathname)
+        this.navigate(window.location.pathname);
+    }
+
+    disconnetedCallback() {
+        window.removeEventListener('popstate', this._handlePopstate)
     }
 }
 

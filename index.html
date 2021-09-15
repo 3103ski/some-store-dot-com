@@ -7,6 +7,7 @@
     <title>Some Shop Dot Com</title>
     <link rel="stylesheet" href="/css/sass/index.css">
 </head>
+
 <body>
     <div id="app">
         <b-router>
@@ -16,22 +17,25 @@
                     <li><a route="/cart">Cart</a></li>
                 </ul>
             </nav>
+
             <b-route
                  path="/"
                  title="Store"
-                 classname="product-list-container"
-                 component="page-store"
-            >
-            </b-route>
+                 classname="store-page-wrapper"
+                 component="store-page"
+                 ></b-route>
             <b-route
                  path="/cart"
                  title="Cart"
                  component="page-cart"
-            >
-            </b-route>
+            ></b-route>
+            <b-route
+                 path="/store/:id"
+                 title="Product"
+                 component="product-page"
+            ></b-route>
 
-            <page-outlet>
-            </page-outlet>
+            <page-outlet></page-outlet>
         </b-router>
     </div>
 </body>

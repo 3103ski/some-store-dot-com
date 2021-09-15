@@ -1,0 +1,66 @@
+@import '../sass/';
+
+.product-page-wrapper {
+    display: flex;
+    padding: 20px;
+
+    #mobile-title {
+        display: none;
+    }
+
+    #product-description {
+        padding: 10px 0 20px 0 ;
+    }
+
+    .product-img-wrapper {
+        width: 30%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .product-details-wrapper    {
+        padding: 0 20px;
+
+        .product-cart-inputs {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            img {
+                width: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            input {
+                width: 50px;
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: '770px') {
+    .product-page-wrapper {
+        flex-direction: column;
+
+        #mobile-title {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        #product-title {
+            display: none;
+        }
+    
+        .product-img-wrapper {
+            width: 100%;
+    
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
