@@ -7,11 +7,16 @@ nav ul {
   padding: 10px;
 }
 nav ul li {
+  display: flex;
+  align-items: center;
   padding: 5px 6px;
 }
 nav ul li a {
   color: white;
   letter-spacing: 1px;
+}
+nav ul #nav-cart-li {
+  margin-left: auto;
 }
 
 * {

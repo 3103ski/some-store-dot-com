@@ -2,16 +2,37 @@
 
 .nav-container-outer {
     display: flex;
+    align-items: center;
     padding: 10px;
     margin: 5px;
 }
 
 .nav-link-outer {
     padding: 3px 8px;
+    display: flex;
+    align-items: center;
     
     a {
         width: 100%;
         text-decoration: none;
         color: #222;
+    }
+}
+
+.nav-cart-container {
+    display: flex;
+    align-items: center;
+
+    .nav-icon-cart {
+        width: 25px;
+    }
+
+    .nav-cart-details {
+        margin-left: 13px;
+        
+        .nav-cart-quantity {
+            font-size: 9px;
+            padding-top: 3px;
+        }
     }
 }

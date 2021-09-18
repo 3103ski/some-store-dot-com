@@ -33,11 +33,9 @@ export class ProductContainer extends HTMLElement {
         const shadow = this.attachShadow({mode: 'open'});
         const style = createStyleLink('storePage');
         const wrapper = makeEl('div', 'products-list-container');
+        const productSlot = makeEl('slot');
 
         wrapper.setAttribute('slot', 'products')
-
-        const productSlot = makeEl('slot');
-        
         productSlot.setAttribute('name', 'product');
 
         wrapper.appendChild(productSlot);
@@ -71,10 +69,9 @@ export class ProductCard extends HTMLElement {
         shadow.appendChild(style)
 
         // create elements
-        const mainWrapper = makeEl('a', 'store-product-card');
+        const mainWrapper = makeEl('div', 'store-product-card');
         const imgWrapper = makeEl('div', 'product-wrapper-img');
-        imgWrapper.setAttribute('href', '/store/1')
-        
+        imgWrapper.setAttribute('route', '/store/1')        
 
         const textWrapper = makeEl('div', 'product-wrapper-text');
         const topText = makeEl('div', 'product-text-top');
@@ -104,19 +101,20 @@ export class ProductCard extends HTMLElement {
     }
 
     connectedCallback() {
+        const router = document.querySelector('b-router');
         let img = imgEl(this.getAttribute('data-img'), this.getAttribute('data-title'), 'product-img');
         let price = this.shadowRoot.querySelector('.store-product-price');
         let description = this.shadowRoot.querySelector('.store-product-description');
         let title = this.shadowRoot.querySelector('.store-product-title');
-        let link = this.shadowRoot.querySelector('a');
-
-        link.setAttribute('href', `/store/${this.getAttribute('data-id')}`)
         
-        this.shadowRoot.querySelector('.product-wrapper-img').appendChild(img)
-
         price.textContent = `${this.getAttribute('data-price')}`;
         description.textContent = `${this.getAttribute('data-description')}`;
         title.textContent = `${this.getAttribute('data-title')}`;
+        
+        this.shadowRoot.querySelector('.product-wrapper-img').appendChild(img)
+        this.addEventListener('click', () => {
+            router.navigate(`/store/${this.getAttribute('data-id')}`)
+        })
 
     }
 }

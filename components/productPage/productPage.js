@@ -48,10 +48,32 @@ export class ProductPage extends HTMLElement {
     }
     
     connectedCallback() {
+        const cart = document.querySelector('nav-cart');
+        const input = this.shadowRoot.querySelector('input');
+
         products.map(p => {
             if (p.id === parseInt(this.getAttribute('id'))) {
-                const img = imgEl(p.img, `${p.title} img`, 'product-img');
-                
+                const img = imgEl(p.img, `${p.title} img`, 'product-img');    
+                input.value = cart.getItemQty(p);
+
+                this.shadowRoot.querySelector('.product-add-btn').addEventListener('click', () => {
+                    if (cart) {
+                        cart.addCartItem(p);
+                        input.value = parseInt(input.value) + 1;
+                    }
+                })
+
+                this.shadowRoot.querySelector('.product-minus-btn').addEventListener('click', () => {
+                    if (cart) {
+                        cart.removeCartItem(p);
+                        if (input.value > 0){
+                            input.value = parseInt(input.value) - 1;
+                        } else {
+                            input.value = 0;
+                        }
+                    }
+                })
+
                 this.shadowRoot.querySelector('.product-img-wrapper').appendChild(img);
                 this.shadowRoot.getElementById('product-title').innerText = p.title
                 this.shadowRoot.getElementById('mobile-title').innerText = p.title

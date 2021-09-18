@@ -7,11 +7,17 @@ nav {
         
 
         li {
+            display: flex;
+            align-items: center;
             padding: 5px 6px;
             a {
                 color: white;
                 letter-spacing: 1px;
             }
+        }
+
+        #nav-cart-li {
+            margin-left: auto;
         }
     }
 }

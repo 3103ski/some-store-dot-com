@@ -65,12 +65,13 @@ export default class Router extends HTMLElement {
     }
 
     get routes() {
-        return Array.from(this.querySelectorAll('b-route')).filter(node => node.parentNode === this).map(r => ({
+        return Array.from(document.querySelectorAll('b-route')).filter(node => node.parentNode === this).map(r => {
+            return ({
             path: r.getAttribute('path'),
             title: r.getAttribute('title'),
             component: r.getAttribute('component'),
             classname: r.getAttribute('classname')
-        }))
+        })})
     }
 
     get outlet() {
@@ -98,8 +99,9 @@ export default class Router extends HTMLElement {
         }
     }
 
+
     updateLinks() {
-        this.querySelectorAll("a[route]").forEach(link => {
+        document.querySelectorAll("a[route]").forEach(link => {
             const target = link.getAttribute("route");
             link.setAttribute("href", target);
             link.onclick = e => {

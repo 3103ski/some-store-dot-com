@@ -7,29 +7,25 @@
     #mobile-title {
         display: none;
     }
-
     #product-description {
         padding: 10px 0 20px 0 ;
     }
 
     .product-img-wrapper {
         width: 30%;
-
         img {
             width: 100%;
+            border-radius: 8px;
         }
     }
-
     .product-details-wrapper    {
         padding: 0 20px;
-
         .product-cart-inputs {
             display: flex;
             align-items: center;
             padding: 10px;
             img {
                 width: 20px;
-
                 &:hover {
                     cursor: pointer;
                 }
